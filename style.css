@@ -209,12 +209,12 @@ section .input {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 60px;
     background-color: #fff;
     border-radius: 10px;
     padding: 0 20px;
     font-weight: 300;
     margin: 15px 0;
+    padding: 10px 20px;
 }
 
 .delete-btn {
@@ -254,7 +254,6 @@ section .input {
 
 .shortLink .copy {
     display: flex;
-    align-items: center;
 }
 
 /* .shortLink .copy p {
@@ -317,7 +316,7 @@ section .heading p {
 .card {
     position: relative;
     width: 350px;
-    height: 250px;
+    height: 270px;
     background-color: #fff;
     border-radius: 10px;
     margin-top: 80px;
@@ -414,6 +413,17 @@ footer .icons a:hover {
     color: var(--cyan);
 }
 
+@media (max-width: 1024px) {
+    .card h3 {
+        font-size: 20px;
+        padding-top: 40px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width: 810px) {
     .topnav a:not(:first-child) {
         display: none;
@@ -436,10 +446,31 @@ footer .icons a:hover {
     .main-heading {
         text-align: center;
         width: 100%;
+        align-items: center;
     }
 
     main .btn {
         margin: 0 auto;
+    }
+
+    .card-group {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .card h3 {
+        font-size: 26px;
+        padding-top: 60px;
+    }
+
+    .card p {
+        font-size: 15px;
     }
 }
   
@@ -459,6 +490,34 @@ footer .icons a:hover {
         display: block;
         text-align: left;
     }
+
+    .shortLink {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shortLink .copy {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shortLink .copy input {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .shortLink .copy button {
+        width: 100%;
+    }
+
+    section .heading {
+        width: 100%;
+    }
+
+    .main-img {
+        width: 95%;
+    }
 }
 
 @media (max-width: 550px) {
@@ -468,10 +527,7 @@ footer .icons a:hover {
 
     main h1 {
         font-size: 54px;
-    }
-
-    .main-img {
-        width: 370px;
+        line-height: 60px;
     }
 
     .input {
@@ -483,10 +539,6 @@ footer .icons a:hover {
         height: 140px;
         padding-left: 20px;
         padding-right: 20px;
-    }
-
-    section .heading {
-        width: 100%;
     }
 
     .input input {
@@ -520,5 +572,11 @@ footer .icons a:hover {
 
     footer .footer a:first-child {
         padding-top: 40px;
+    }
+}
+
+@media (max-width: 370px) {
+    .shortLink h4, .shortLink .copy input {
+        font-size: 14px;
     }
 }
