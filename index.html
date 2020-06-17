@@ -8,22 +8,24 @@
     <title>Shortly-More Than Just Shorter Links</title>
 </head>
 <body>
-    <nav id="myTopnav">
-        <a href="#"><img src="images/logo.svg" alt=""></a>
-        <a href="#">Features</a>
-        <a href="#">Pricing</a>
-        <a href="#">Resources</a>
-        <div class="right">
-            <a href="#">Login</a>
-            <a href="#" class="btn">Sign Up</a>  
-            <a href="#" class="icon"><i class="fas fa-bars"></i></a>
-        </div>
-    </nav>
+    <nav class="topnav" id="myTopnav">
+        <a href="#home" class="active"><img src="images/logo.svg" alt=""></a>
+        <a href="#news">FEATURES</a>
+        <a href="#contact">PRICING</a>
+        <a href="#about">RESOURCES</a>
+        <a href="#about" class="right btn">Sign Up</a>
+        <a href="#about" class="right">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars fa-2x"></i>
+        </a>
+      </nav>
     <main>
-        <h1>More than just shorter links</h1>
-        <p>Build your brand’s recognition and get detailed insights on how your links are performing.</p>
-        <button class="btn">Get Started</button>
-        <img class="main-img" src="images/illustration-working.svg" alt="">
+        <div class="main-heading">
+            <h1>More than just shorter links</h1>
+            <p>Build your brand’s recognition and get detailed insights on how your links are performing.</p>
+            <button class="btn">Get Started</button>
+        </div>
+            <img class="main-img" src="images/illustration-working.svg" alt="">
     </main>
 
     <section class="sec-one">
@@ -32,12 +34,13 @@
             <small id="err"><em>Please add a link</em></small>
             <button id="submit">Shorten It!</button>
         </form>
+        <!-- Add data from DOM -->
+        <div class="short-section"></div>
         <div class="heading">
             <h2>Advanced Statistics</h2>
             <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
         </div>
         <div class="card-group">
-            <div class="row"></div>
             <div class="card">
                 <img src="images/icon-brand-recognition.svg" alt="">
                 <h3>Brand Recognition</h3>
