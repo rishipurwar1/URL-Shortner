@@ -62,17 +62,6 @@ body {
     float: right;
 }
 
-@media screen and (max-width: 720px) {
-  .topnav a {display: none;}
-  .topnav .active {
-      display: block;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
 .btn {
     cursor: pointer;
     padding: 8px 22px;
@@ -503,6 +492,7 @@ footer .icons a:hover {
       top: 0;
       background-color: white;
       margin-bottom: 20px;
+      color: var(--grayishViolet);
     }
   
     .topnav.responsive a.active {
@@ -516,6 +506,7 @@ footer .icons a:hover {
       display: block;
       text-align: center;
       background-color: hsl(257, 27%, 26%);
+      color: white;
     }
   
     .topnav-right {
@@ -540,6 +531,17 @@ footer .icons a:hover {
     }
   
 }
+
+@media screen and (max-width: 720px) {
+    .topnav a {display: none;}
+    .topnav .active {
+        display: block;
+    }
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
 
 @media (max-width: 550px) {
     main {
