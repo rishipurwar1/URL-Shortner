@@ -22,7 +22,10 @@ body {
 
 .topnav {
     overflow: hidden;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10%;
+    padding-left: 10%;
   }
   
 .topnav a {
@@ -52,6 +55,7 @@ body {
 
 .topnav a.active {
     padding-top: 14px;
+    padding-left: 0;
 }
   
 .topnav .icon {
@@ -446,6 +450,15 @@ footer .icons a:hover {
         justify-content: center;
     }
 
+    .card-group::before {
+        top: 100px;
+        left: 50%;
+        right: 0;
+        height: 80%;
+        bottom: 0;
+        width: 10px;
+    }
+
     .card {
         margin-right: 0;
         width: 100%;
@@ -495,8 +508,15 @@ footer .icons a:hover {
     }
 }
 
-@media screen and (max-width: 720px) {
-    .topnav.responsive {position: relative;}
+@media screen and (max-width: 840px) {
+    .topnav {
+        padding: 20px;
+    }
+
+    .topnav.responsive {
+        position: relative;
+    }
+
     .topnav.responsive a.icon {
       position: absolute;
       right: 0;
@@ -543,7 +563,7 @@ footer .icons a:hover {
   
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 840px) {
     .topnav a {display: none;}
     .topnav .active {
         display: block;
@@ -551,6 +571,10 @@ footer .icons a:hover {
     .topnav a.icon {
       float: right;
       display: block;
+    }
+
+    .topnav a.active {
+        padding-left: 20px;
     }
   }
 
@@ -560,7 +584,7 @@ footer .icons a:hover {
     }
 
     main h1 {
-        font-size: 54px;
+        font-size: 44px;
         line-height: 60px;
     }
 
