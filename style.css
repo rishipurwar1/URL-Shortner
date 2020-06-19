@@ -297,9 +297,20 @@ section .heading p {
 }
 
 .card-group {
+    position: relative;
     margin-bottom: 100px;
     width: 100%;
     display: flex;
+}
+
+.card-group::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-color: var(--cyan);
 }
 
 .card {
