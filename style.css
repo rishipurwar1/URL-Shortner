@@ -18,6 +18,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    max-width: 1536px;
 }
 
 .topnav {
@@ -264,6 +265,7 @@ section .input {
     font-weight: 700;
     background-color: var(--cyan);
     color: #fff;
+    margin-left: 5px;
 }
 
 .shortLink .copy button:focus {
@@ -415,6 +417,12 @@ footer .icons a {
 
 footer .icons a:hover {
     color: var(--cyan);
+}
+
+@media (min-width: 1536px) {
+    body {
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 1024px) {

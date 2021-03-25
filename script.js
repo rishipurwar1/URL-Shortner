@@ -30,43 +30,33 @@ function generateID() {
 function addToDOM(e) {
   e.preventDefault();
 
-  if(input.value === '') {
+  if (input.value === '') {
     input.classList.add('wrong');
     error.style.display = "block";
   } else {
     let inputValue = input.value;
-    postData('https://rel.ink/api/links/', { url: inputValue })
-    .then(data => {
-      const values = {
-        id: generateID(),
-        input: data.url,
-        shortenURL: data.hashid
-      };
-      // console.log(data);
-      dataBase.push(values);
-      shortenLink(values);
-      updateLocalStorage();
-      input.value = '';
-    });
+    postData(inputValue)
+      .then(data => {
+        console.log(data)
+        const values = {
+          id: generateID(),
+          input: data.result.original_link,
+          shortenURL: data.result.full_short_link
+        };
+        // console.log(data);
+        dataBase.push(values);
+        shortenLink(values);
+        updateLocalStorage();
+        input.value = '';
+      });
     input.classList.remove('wrong');
     error.style.display = "none";
   }
 }
 
-async function postData(url = "", data = {}) {
+async function postData(url) {
   // Default options are marked with *
-  const response = await fetch("https://rel.ink/api/links/", {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-    body: JSON.stringify(data)
-  });
+  const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
   return response.json();
 }
 
@@ -78,7 +68,7 @@ function shortenLink(value) {
   <button class="delete-btn" onclick="removeURL(${value.id})">x</button>
   <h4>${value.input}</h4>
   <div class="copy">
-    <input type="text" class="shortUrl${value.id}" value="https://rel.ink/${value.shortenURL}" readonly>
+    <input type="text" class="shortUrl${value.id}" value="${value.shortenURL}" readonly>
     <button class="copy-btn">Copy</button>
   </div>
   `;
@@ -104,13 +94,13 @@ function removeURL(id) {
 
 // INIT APP
 function init() {
-    shortURL.innerHTML = '';
-    dataBase.forEach(shortenLink);
+  shortURL.innerHTML = '';
+  dataBase.forEach(shortenLink);
 }
 
 init();
 
-  // Copy Button
+// Copy Button
 function copyButton(e) {
   e.target.innerText = 'Copied';
   const url = e.target.previousElementSibling.className;
@@ -121,12 +111,12 @@ function copyButton(e) {
 
 // Copy Text
 function copyText(cla) {
-    // Copy Text
-    var copyText = document.querySelector("."+cla);
-    console.log(copyText);
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
+  // Copy Text
+  var copyText = document.querySelector("." + cla);
+  console.log(copyText);
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
 }
 
 // Event Listeners
